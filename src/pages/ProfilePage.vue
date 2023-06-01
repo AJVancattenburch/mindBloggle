@@ -1,7 +1,15 @@
 <template>
-   <div class="container-fluid">
-      Hello from the profile page
-   </div>
+   <section class="container-fluid">
+      <img :src="profile?.coverImg">
+      <h1>{{ profile?.name }}</h1>
+      <h1>{{ profile?.bio }}</h1>
+      <img :src="profile?.picture">
+      <div class="row justify-content-around">
+      <div class="col-5" v-for="b in blogs" :key="b.id">
+         <BlogCard :blog="b" />
+      </div>
+      </div>
+   </section>
 </template>
 
 <script>
@@ -34,7 +42,8 @@ import { blogsService } from '../services/BlogsService.js';
             getBlogsByProfile()
          })
          return {
-            profile: computed(() => AppState.activeProfile)
+            profile: computed(() => AppState.activeProfile),
+            blogs: computed(() => AppState.blogs)
          }
       }
    }
