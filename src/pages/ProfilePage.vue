@@ -1,5 +1,5 @@
 <template>
-   <section class="container-fluid">
+   <section class="container-fluid profile">
       <img :src="profile?.coverImg">
       <h1>{{ profile?.name }}</h1>
       <h1>{{ profile?.bio }}</h1>
@@ -19,9 +19,14 @@ import Pop from '../utils/Pop.js';
 import { AppState } from '../AppState.js';
 import { logger } from '../utils/Logger.js';
 import { profileService } from '../services/ProfileService.js';
+import { Profile } from '../models/Profile.js'
+import { Account } from '../models/Account.js'
 import { blogsService } from '../services/BlogsService.js';
    export default {
-      setup(){
+      props: {
+         profile: {type: [Profile, Account], required: true}
+      },
+      setup(props){
          const route = useRoute(); 
          async function getProfile(){
             try {
@@ -43,13 +48,16 @@ import { blogsService } from '../services/BlogsService.js';
          })
          return {
             profile: computed(() => AppState.activeProfile),
-            blogs: computed(() => AppState.blogs)
+            blogs: computed(() => AppState.blogs),
+            coverImg: computed(() => `url(${props.profile?.coverImg})`)
          }
       }
    }
 </script>
 
 
-<style>
-
+<style lang="scss">
+   .profile{
+      background-image: v-bind(coverImg)
+   }
 </style>
