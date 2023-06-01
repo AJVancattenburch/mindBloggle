@@ -11,7 +11,14 @@ class BlogsService {
     logger.log( AppState.blogs )
   }
   async getBlogsByProfile(id){
-
+    AppState.blogs = [] 
+    const res = api.get('api/blogs', {
+      params: {
+        creatorId: id
+      }
+    })
+    AppState.blogs = res.data.map(b => new Blog(b))
+    logger.log(AppState.blogs)
   }
 }
 

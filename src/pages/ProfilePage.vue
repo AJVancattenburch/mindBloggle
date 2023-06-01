@@ -31,9 +31,10 @@ import { blogsService } from '../services/BlogsService.js';
          } 
          onMounted(() => {
             getProfile()
+            getBlogsByProfile()
          })
          return {
-            profile: computer(() => AppState.activeProfile)
+            profile: computed(() => AppState.activeProfile)
          }
       }
    }
