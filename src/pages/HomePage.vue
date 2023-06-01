@@ -1,8 +1,8 @@
 <template>
   
   <section class="container-fluid">
-    <div class="row">
-      <div class="col-6" v-for="b in blogs" :key="b.id">
+    <div class="row justify-content-around">
+      <div class="col-5" v-for="b in blogs" :key="b.id">
         <BlogCard :blog="b" />
       </div>
     </div>
@@ -68,8 +68,5 @@ export default {
 
 <style scoped lang="scss">
 
-.home {
-
-}
 
 </style>

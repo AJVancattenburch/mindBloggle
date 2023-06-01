@@ -7,6 +7,7 @@ export class Blog {
     this.tags = data.tags
     this.published = data.published
     this.creatorId = data.creatorId
+    this.creator = data.creator
     this.createdAt = data.createdAt
     this.updatedAt = new Date(data.updatedAt)
   }
