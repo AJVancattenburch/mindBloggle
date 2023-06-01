@@ -10,6 +10,9 @@ class BlogsService {
     AppState.blogs = res.data.map(b => new Blog(b))
     logger.log( AppState.blogs )
   }
+  async getBlogsByProfile(id){
+
+  }
 }
 
 
