@@ -8,7 +8,7 @@ export class Blog {
     this.published = data.published
     this.creatorId = data.creatorId
     this.creator = data.creator
-    this.createdAt = data.createdAt
+    this.createdAt = new Date(data.createdAt)
     this.updatedAt = new Date(data.updatedAt)
   }
 }

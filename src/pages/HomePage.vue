@@ -2,7 +2,7 @@
   
   <section class="container-fluid">
     <div class="row justify-content-around">
-      <div class="col-5" v-for="b in blogs" :key="b.id">
+      <div class="col-5 blog-card my-3" v-for="b in blogs" :key="b.id">
         <BlogCard :blog="b" />
       </div>
     </div>
@@ -43,5 +43,8 @@ export default {
 
 <style scoped lang="scss">
 
+body {
+  background-color: #050522f1;
+}
 
 </style>

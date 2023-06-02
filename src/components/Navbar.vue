@@ -5,6 +5,10 @@
         <img alt="logo" src="../assets/img/cw-logo.png" height="45" />
       </div>
     </router-link>
+    <router-link class="navbar-brand d-flex" :to="{ name: 'Home' }">
+      <div class="d-flex flex-column align-items-center">
+      </div>
+    </router-link>
     <button
       class="navbar-toggler"
       type="button"
@@ -13,11 +17,18 @@
       aria-controls="navbarText"
       aria-expanded="false"
       aria-label="Toggle navigation"
-    >
+      >
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarText">
       <ul class="navbar-nav me-auto">
+        <li>
+          <router-link class="navbar-brand d-flex" :to="{ name: 'Account' }">
+            <div class="d-flex flex-column align-items-center">
+              <i class="mdi mdi-account"></i>
+            </div>
+          </router-link>
+        </li>
         <!-- <li class="">
           <router-link :to="{ name: 'About' }" class="btn text-success lighten-30 selectable text-uppercase">
             About
